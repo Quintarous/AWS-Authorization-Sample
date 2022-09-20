@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">aws testbed</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="logged_in">You are currently logged in.</string>
+    <string name="logged_out">You are not currently logged in.</string>
+
+    <string name="username">username</string>
+    <string name="password">password</string>
+    <string name="email">email</string>
+
+    <string name="register">Register</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="submit">Submit</string>
+    <string name="register_label">Enter a username, password, and email.</string>
+
+    <string name="sign_in_successful_toast">Signed in successfully</string>
+    <string name="sign_in_failed_toast">Sign in attempt failed because: %1$s</string>
+    <string name="sign_out_successful_toast">Signed out successfully</string>
+    <string name="sign_out_error_toast">Sign out attempt failed because: %1$s</string>
+</resources>
