@@ -24,4 +24,11 @@
     <string name="sign_in_failed_toast">Sign in attempt failed because: %1$s</string>
     <string name="sign_out_successful_toast">Signed out successfully</string>
     <string name="sign_out_error_toast">Sign out attempt failed because: %1$s</string>
+    <string name="password_error_label">Password must be at least 8 characters long.</string>
+    <string name="username_field">username field</string>
+    <string name="password_error_icon">password error icon</string>
+    <string name="invalid_email">Invalid email.</string>
+
+    <string name="username_already_exists">Username already exists.</string>
+    <string name="an_error_occured">An error occurred. ERROR: %1$s</string>
 </resources>
