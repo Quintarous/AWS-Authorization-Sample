@@ -17,6 +17,6 @@
 
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.austin.awstestbed.RegisterFragment"
+        android:name="com.austin.awstestbed.register.RegisterFragment"
         android:label="RegisterFragment" />
 </navigation>

@@ -34,9 +34,24 @@ android {
         viewBinding true
         dataBinding true
     }
+    namespace 'com.austin.awstestbed'
 }
 
 dependencies {
+
+    ext.junit_version = "4.13.2"
+    ext.androidx_test_version = "1.4.0"
+    ext.hamcrest_version = "2.2"
+    ext.robolectric_version = "4.8"
+    ext.nav_version = "2.5.2"
+    ext.coroutines_version = "1.6.0"
+    ext.test_runner_version = "1.4.0"
+    ext.test_rules_version = "1.4.0"
+    ext.test_junit_version = "1.1.3"
+    ext.truth_version = "1.4.0"
+    ext.espresso_version = "3.4.0"
+    ext.mockito_version = "4.5.1"
+    ext.mockito_kotlin_version = "4.0.0"
 
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
@@ -44,13 +59,54 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.2'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
     // Amplify core dependency
     implementation 'com.amplifyframework:core:1.37.3'
     // Support for Java 8 features
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
     // cognito auth
     implementation 'com.amplifyframework:aws-auth-cognito:1.37.3'
+
+
+    // core test
+    // junit
+    testImplementation "junit:junit:$junit_version"
+    androidTestImplementation "junit:junit:4.13.2"
+    // androidx.test core
+    testImplementation "androidx.test:core:$androidx_test_version"
+    testImplementation "androidx.test:core-ktx:$androidx_test_version"
+    androidTestImplementation "androidx.test:core:$androidx_test_version"
+    androidTestImplementation "androidx.test:core-ktx:$androidx_test_version"
+    // androidx.test junit
+    testImplementation "androidx.test.ext:junit:$test_junit_version"
+    testImplementation "androidx.test.ext:junit-ktx:$test_junit_version"
+    androidTestImplementation "androidx.test.ext:junit:$test_junit_version"
+    androidTestImplementation "androidx.test.ext:junit-ktx:$test_junit_version"
+    // AndroidJUnitRunner and JUnit Rules
+    androidTestImplementation("androidx.test:runner:$test_runner_version")
+    androidTestImplementation("androidx.test:rules:$test_rules_version")
+    // Assertions
+    androidTestImplementation("androidx.test.ext:junit:$test_junit_version")
+    androidTestImplementation("androidx.test.ext:junit-ktx:$test_junit_version")
+    androidTestImplementation("androidx.test.ext:truth:$truth_version")
+    // navigation
+    androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
+    // coroutines
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
+    // hamcrest
+    testImplementation "org.hamcrest:hamcrest:$hamcrest_version"
+    androidTestImplementation "org.hamcrest:hamcrest:$hamcrest_version"
+    // robolectric
+    testImplementation "org.robolectric:robolectric:$robolectric_version"
+    // espresso
+    androidTestImplementation( "androidx.test.espresso:espresso-core:$espresso_version")
+    androidTestImplementation( "androidx.test.espresso:espresso-contrib:$espresso_version")
+    androidTestImplementation( "androidx.test.espresso:espresso-intents:$espresso_version")
+    androidTestImplementation( "androidx.test.espresso:espresso-accessibility:$espresso_version")
+    androidTestImplementation( "androidx.test.espresso:espresso-web:$espresso_version")
+    androidTestImplementation( "androidx.test.espresso.idling:idling-concurrent:$espresso_version")
+    // mockito
+    androidTestImplementation "org.mockito:mockito-core:$mockito_version"
+    androidTestImplementation "org.mockito.kotlin:mockito-kotlin:$mockito_kotlin_version"
+    androidTestImplementation "org.mockito:mockito-android:$mockito_version"
 }
