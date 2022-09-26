@@ -13,6 +13,9 @@ import com.amplifyframework.core.Consumer
 import com.austin.awstestbed.getAuthSignInResult
 import com.austin.awstestbed.getAuthSignUpResult
 import org.mockito.Mockito
+import java.util.concurrent.CountDownLatch
+
+const val TEST_ERROR_MESSAGE = "test_error_message"
 
 /**
  * Faking the AWS Amplify Auth plugin code for testing purposes.
@@ -21,6 +24,8 @@ class FakeAuth(): AuthCategoryBehavior {
 
     // this determines what scenario we're going to simulate. (success, failure, etc)
     var behavior: Behavior = Behavior.SUCCESS
+    // this latch will be injected by the test code. We count it down to tell the test a callback was run
+    var latch: CountDownLatch? = null
 
 
     /**
@@ -36,13 +41,24 @@ class FakeAuth(): AuthCategoryBehavior {
     ) {
         // creating a mock result and error
         val mockResult = getAuthSignUpResult()
-        val exception = AuthException("message", "recovery suggestion")
+        val exception = AuthException(TEST_ERROR_MESSAGE, "recovery suggestion")
+        val usernameExistsException =
+            AuthException.UsernameExistsException(Throwable("Username already exists"))
 
         // if we're told to fail during signup run the onError consumer
-        if (behavior == Behavior.SIGNUP_FAIL) {
-            onError.accept(exception)
-        } else { // otherwise run the onSuccess consumer
-            onSuccess.accept(mockResult)
+        when (behavior) {
+            Behavior.SIGNUP_FAIL -> {
+                onError.accept(exception)
+                latch?.countDown()
+            }
+            Behavior.USERNAME_EXISTS -> {
+                onError.accept(usernameExistsException)
+                latch?.countDown()
+            }
+            else -> {
+                onSuccess.accept(mockResult)
+                latch?.countDown()
+            }
         }
     }
 
@@ -59,19 +75,21 @@ class FakeAuth(): AuthCategoryBehavior {
     ) {
         // creating a mock result and error
         val mockResult = getAuthSignInResult()
-        val exception = AuthException("message", "recovery suggestion")
+        val exception = AuthException(TEST_ERROR_MESSAGE, "recovery suggestion")
 
         // if we're told to fail during sign in run the onError consumer
         if (behavior == Behavior.SIGN_IN_FAIL) {
             onError.accept(exception)
+            latch?.countDown()
         } else { // otherwise run the onSuccess consumer
             onSuccess.accept(mockResult)
+            latch?.countDown()
         }
     }
 
 
     enum class Behavior {
-        SUCCESS, SIGNUP_FAIL, SIGN_IN_FAIL
+        SUCCESS, SIGNUP_FAIL, USERNAME_EXISTS, SIGN_IN_FAIL
     }
 
 
