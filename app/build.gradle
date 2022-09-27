@@ -54,6 +54,7 @@ dependencies {
     ext.espresso_version = "3.4.0"
     ext.mockito_version = "4.5.1"
     ext.mockito_kotlin_version = "4.0.0"
+    ext.fragment_version = "1.5.3"
 
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
@@ -98,6 +99,8 @@ dependencies {
     // coroutines
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
     androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
+    // fragment testing
+    debugImplementation "androidx.fragment:fragment-testing:$fragment_version"
     // hamcrest
     testImplementation "org.hamcrest:hamcrest:$hamcrest_version"
     androidTestImplementation "org.hamcrest:hamcrest:$hamcrest_version"

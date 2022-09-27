@@ -45,6 +45,7 @@ fun <T> LiveData<T>.getOrAwaitValue(
     return data as T
 }
 
+
 // returns a AuthSignUpResult for testing
 fun getAuthSignUpResult(): AuthSignUpResult {
     val authCodeDeliveryDetails = AuthCodeDeliveryDetails(
@@ -62,6 +63,7 @@ fun getAuthSignUpResult(): AuthSignUpResult {
         AuthUser("userId", "username")
     )
 }
+
 
 // returns a AuthSignInResult for testing
 fun getAuthSignInResult(): AuthSignInResult {

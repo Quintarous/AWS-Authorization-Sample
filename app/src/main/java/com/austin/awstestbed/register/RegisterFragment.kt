@@ -15,7 +15,6 @@ import com.austin.awstestbed.databinding.FragmentRegisterBinding
 import com.austin.awstestbed.register.RegisterViewModel.RegisterUiState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-// TODO write tests for all of the registration flows!
 // TODO research security for how to handle user password strings
 class RegisterFragment: Fragment() {
 
@@ -24,6 +23,7 @@ class RegisterFragment: Fragment() {
 
     private val viewModel: RegisterViewModel = RegisterViewModel.provideFactory(Amplify.Auth)
         .create(RegisterViewModel::class.java)
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
